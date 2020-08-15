@@ -67,11 +67,11 @@ spec:
         - name: stateful-micro-h2o-0
           image: maxmorev/stateful-micro-h2o:latest
           volumeMounts:
-            - name: v-micro-h2o-0-storage
+            - name: pv-micro-h2o-0-storage
               mountPath: /opt/micro/h2o
           ports:
             - containerPort: 8080
-              name: stateful-micro-h2o-0
+              name: stateful-micro
           resources:
             requests:
               memory: "100Mi"
