@@ -57,8 +57,8 @@ spec:
     spec:
       securityContext:
         runAsUser: 1001
-        runAsGroup: 1001
-        fsGroup: 1001
+        runAsGroup: root
+        fsGroup: root
       volumes:
         - name: pv-micro-h2o-0-storage
           persistentVolumeClaim:
