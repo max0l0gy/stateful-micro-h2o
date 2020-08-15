@@ -16,4 +16,4 @@ jobs:
 
     steps:
     - name: Echo first
-      run: echo 'GITHUB_RUN_ID -> ${{ github.run_id }}'
+      run: echo 'GITHUB_RUN_ID -> ${{ github.run_number }}'
