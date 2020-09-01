@@ -1,5 +1,6 @@
 # stateful-micro-h2o project
-Example of Actions BUILD and Deploy to kubernetes
+## How to Deploy to DigitalOcean Kubernetes with GitHub Actions
+[Example of GitHub Action](https://github.com/max0l0gy/stateful-micro-h2o/blob/master/.github/workflows/maven.yml)
 ## API
 http POST http://localhost:8080/customer-passport history="Some short history of item2"
 ````
@@ -30,9 +31,7 @@ http GET http://localhost:8080/customer-passport
 · /health/ready - The application is ready to serve requests.
 · /health - Accumulating all health check procedures in the application.
 ````
-
-https://www.martinfowler.com/eaaCatalog/activeRecord.html
-
+[Martin Fowler ActiveRecord](https://www.martinfowler.com/eaaCatalog/activeRecord.html)
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 

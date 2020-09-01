@@ -36,24 +36,11 @@ jobs:
         uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-#      - name: set kubectl context
-#        uses: azure/k8s-set-context@v1
-#        with:
-#          method: kubeconfig
-#          kubeconfig: ${{ secrets.DIGITALOCEAN_K8S_CONFIG }}
-#        id: setcontext
       - name: Update deployment file
         run: TAG=0.0.$(echo ${{ github.run_number }} | head -c7) && sed -i 's|maxmorev/stateful-micro-h2o:latest|maxmorev/stateful-micro-h2o:'${TAG}'|' $GITHUB_WORKSPACE/stateful-micro-h2o-deploy.yaml
-      - name: Check image version
+      - name: Print image version
         run: cat $GITHUB_WORKSPACE/stateful-micro-h2o-deploy.yaml | grep image
       - name: Save DigitalOcean kubeconfig
         run: doctl kubernetes cluster kubeconfig save k8s-eshop
       - name: Deploy to DigitalOcean Kubernetes
         run: kubectl apply -f $GITHUB_WORKSPACE/stateful-micro-h2o-deploy.yaml
-#      - uses: Azure/k8s-deploy@v1
-#        with:
-#          namespace: eshop
-#          manifests: |
-#            stateful-micro-h2o-deploy.yaml
-#          images: maxmorev/stateful-micro-h2o:0.0.${{ github.run_number }}
-#          kubectl-version: latest

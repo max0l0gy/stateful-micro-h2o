@@ -68,7 +68,7 @@ spec:
           image: maxmorev/stateful-micro-h2o:latest
           volumeMounts:
             - name: pv-micro-h2o-0-storage
-              mountPath: /opt/micro2/h2o
+              mountPath: /opt/micro/h2o
           ports:
             - containerPort: 8080
               name: quarkus
