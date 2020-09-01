@@ -55,10 +55,9 @@ spec:
       labels:
         app: stateful-micro-h2o-0
     spec:
-      securityContext:
-        runAsUser: 1001
-        runAsGroup: 0
-        fsGroup: 0
+#      securityContext:
+#        runAsUser: 1001
+#        fsGroup: 0
       volumes:
         - name: h2o-0-storage
           persistentVolumeClaim:
@@ -68,7 +67,7 @@ spec:
           image: maxmorev/stateful-micro-h2o:latest
           volumeMounts:
             - name: h2o-0-storage
-              mountPath: /opt/micro/h2o
+              mountPath: "/opt/micro/h2o"
           ports:
             - containerPort: 8080
               name: quarkus
