@@ -18,8 +18,6 @@ spec:
   resources:
     requests:
       storage: 5Gi
-  storageClassName: do-block-storage
-
 ---
 apiVersion: v1
 kind: Service
@@ -55,29 +53,30 @@ spec:
       labels:
         app: stateful-micro-h2o-0
     spec:
-#      securityContext:
-#        runAsUser: 1001
-#        fsGroup: 0
+      securityContext:
+        runAsUser: 1001
+        runAsGroup: 0
+        fsGroup: 0
       volumes:
         - name: h2o-0-storage
           persistentVolumeClaim:
             claimName: pv-micro-h2o-0
       containers:
         - name: stateful-micro-h2o-0
-          image: maxmorev/stateful-micro-h2o:latest
+          image: maxmorev/stateful-micro-h2o:0.0.25
           volumeMounts:
             - name: h2o-0-storage
-              mountPath: "/opt/micro/h2o"
+              mountPath: /opt/micro/h2o
           ports:
             - containerPort: 8080
               name: quarkus
           resources:
             requests:
-              memory: "100Mi"
+              memory: "250Mi"
               cpu: "250m" # 1/4 core
             limits:
-              memory: "250Mi"
-              cpu: "500m" # 1/2 core
+              memory: "500Mi"
+              cpu: "250m" # 1/2 core
           readinessProbe:
             httpGet:
               path: /health/ready
