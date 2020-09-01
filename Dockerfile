@@ -5,7 +5,6 @@ RUN mkdir /opt/micro \
 && chown -R root /opt/micro \
 && chmod u=rwx,g=rx /opt/micro \
 && chown -R root:root /opt/micro
-
 # Configure the JAVA_OPTIONS, you can add -XshowSettings:vm to also display the heap size.
 ENV JAVA_OPTIONS="-Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager"
 WORKDIR /opt/micro
