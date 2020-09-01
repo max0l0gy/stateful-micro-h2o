@@ -60,14 +60,14 @@ spec:
         runAsGroup: 0
         fsGroup: 0
       volumes:
-        - name: pv-micro-h2o-0-storage
+        - name: h2o-0-storage
           persistentVolumeClaim:
             claimName: pv-micro-h2o-0
       containers:
         - name: stateful-micro-h2o-0
           image: maxmorev/stateful-micro-h2o:latest
           volumeMounts:
-            - name: pv-micro-h2o-0-storage
+            - name: h2o-0-storage
               mountPath: /opt/micro/h2o
           ports:
             - containerPort: 8080
