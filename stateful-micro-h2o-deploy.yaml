@@ -63,7 +63,7 @@ spec:
             claimName: pv-micro-h2o-0
       containers:
         - name: stateful-micro-h2o-0
-          image: maxmorev/stateful-micro-h2o:0.0.25
+          image: maxmorev/stateful-micro-h2o:latest
           volumeMounts:
             - name: h2o-0-storage
               mountPath: /opt/micro/h2o
